@@ -8,6 +8,8 @@ import {
   Typography,
 } from '@material-ui/core';
 
+import { useEffect, useState } from 'react';
+
 const useStyles = makeStyles((theme) => ({
   container: {
     padding: '0',
@@ -43,13 +45,52 @@ const useStyles = makeStyles((theme) => ({
   typographyTotal: {
     marginRight: '0.5rem',
   },
-  typographyDollarAmount: {
-    marginLeft: '0.5rem',
+  typographyError: {
+    color: 'red',
+    marginRight: '0.5rem',
   },
 }));
 
 function App() {
   const classes = useStyles();
+
+  const [total, setTotal] = useState(0);
+  const [budgetString, setBudgetString] = useState('');
+  const [totalElementOutput, settotalElementOutput] = useState(
+    `Total: $${total}`
+  );
+
+  useEffect(() => {
+    if (total === 'NaN') {
+      settotalElementOutput(
+        <Typography variant="h4" className={classes.typographyError}>
+          Error! Please ensure all "$" and "," are in the correct place.
+        </Typography>
+      );
+    } else {
+      settotalElementOutput(
+        <Typography variant="h2" className={classes.typographyTotal}>
+          Total: ${total}
+        </Typography>
+      );
+    }
+  }, [total, classes.typographyTotal, classes.typographyError]);
+
+  const getTotal = () => {
+    if (budgetString) {
+      const valuesArr = [];
+      const itemList = budgetString.split(',');
+
+      itemList.forEach((item) => {
+        const dollarSign = item.indexOf('$');
+        const value = item.slice(dollarSign + 1);
+        if (value) {
+          valuesArr.push(+value);
+        }
+      });
+      setTotal(valuesArr.reduce((total, num) => total + num).toFixed(2));
+    }
+  };
 
   return (
     <Container maxWidth="lg" className={classes.container}>
@@ -62,11 +103,13 @@ function App() {
           </Grid>
           <Grid item xs={2}></Grid>
           <Grid item xs={8}>
-            <Typography variant="subtitle1">
+            <Typography variant="h6">
               Include dollar sign '$' before each item's value. Separate each
               item with a comma ','
             </Typography>
             <TextField
+              value={budgetString}
+              onChange={(e) => setBudgetString(e.target.value)}
               variant="outlined"
               id="outlined-textarea"
               label="Add Budget Items Here..."
@@ -85,14 +128,16 @@ function App() {
             xs={12}
             className={classes.buttonGrid}
           >
-            <Button variant="filled" className={classes.button}>
+            <Button
+              variant="filled"
+              onClick={getTotal}
+              className={classes.button}
+            >
               Get Total
             </Button>
           </Grid>
           <Grid container item justifyContent="center" xs={12}>
-            <Typography variant="h2" className={classes.typographyTotal}>
-              Total: $<span id="totalSpan">0</span>
-            </Typography>
+            {totalElementOutput}
           </Grid>
         </Grid>
       </Card>
