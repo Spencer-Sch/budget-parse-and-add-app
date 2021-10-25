@@ -25,10 +25,9 @@ const useStyles = makeStyles((theme) => ({
     fontSize: '4rem',
     margin: '1rem 0 2rem 0',
   },
-  textarea: {
+  TextField: {
     maxHeight: '15rem',
     marginTop: '0.5rem',
-    // overflowY: 'scroll',
     backgroundColor: theme.palette.secondary.light,
   },
   button: {
@@ -104,12 +103,13 @@ function App() {
               Budget Parse and Add App
             </Typography>
           </Grid>
-          <Grid item xs={2}></Grid>
-          <Grid item xs={8}>
+          <Grid container item xs={8}>
             <Typography variant="h6">
               Include dollar sign '$' before each item's value. Separate each
               item with a comma ','
             </Typography>
+          </Grid>
+          <Grid container item justifyContent="center" xs={8}>
             <TextField
               value={budgetString}
               onChange={(e) => setBudgetString(e.target.value)}
@@ -120,10 +120,9 @@ function App() {
               multiline
               fullWidth
               minRows={10}
-              className={classes.textarea}
+              className={classes.TextField}
             />
           </Grid>
-          <Grid item xs={2}></Grid>
           <Grid
             container
             item

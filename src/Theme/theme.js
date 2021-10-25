@@ -13,6 +13,13 @@ const theme = createTheme({
       main: blue['A100'],
     },
   },
+  overrides: {
+    MuiInputBase: {
+      input: {
+        overflowY: 'scroll',
+      },
+    },
+  },
 });
 
 export default theme;
