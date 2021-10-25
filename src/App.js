@@ -26,7 +26,10 @@ const useStyles = makeStyles((theme) => ({
     margin: '1rem 0 2rem 0',
   },
   textarea: {
+    maxHeight: '15rem',
     marginTop: '0.5rem',
+    // overflowY: 'scroll',
+    backgroundColor: theme.palette.secondary.light,
   },
   button: {
     color: 'white',
