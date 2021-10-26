@@ -189,8 +189,7 @@ function App() {
               placeholder="Ex: coffee $5, gas $20, dinner $15"
               multiline
               fullWidth
-              minRows={4}
-              maxRows={10}
+              minRows={10}
               className={classes.TextField}
               inputProps={{
                 style: {
