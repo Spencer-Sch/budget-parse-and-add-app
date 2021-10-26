@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
       height: '65vh',
       width: '90vw',
     },
-    '@media (max-width: 899px)': {
+    '@media (max-width: 999px)': {
       marginTop: '8vh',
       height: '75vh',
       width: '90vw',
@@ -42,16 +42,19 @@ const useStyles = makeStyles((theme) => ({
     '@media (max-width: 1280px)': {
       fontSize: '3rem',
     },
-    '@media (max-width: 899px)': {
+    '@media (max-width: 999px)': {
       margin: '3.8rem 0 2rem 0',
       fontSize: '3rem',
     },
-    '@media (max-width: 745px)': {
+    '@media (max-width: 800px)': {
       fontSize: '2.5rem',
     },
+    '@media (max-width: 675px)': {
+      fontSize: '2.2rem',
+    },
     '@media (max-width: 599px)': {
-      margin: '1.2rem 0 2rem 0',
-      fontSize: '1.5rem',
+      margin: '1.2rem 0 1rem 0',
+      fontSize: '2rem',
     },
   },
   typographyInstructions: {
@@ -80,19 +83,20 @@ const useStyles = makeStyles((theme) => ({
       width: '15rem',
       fontSize: '1.5rem',
     },
-    '@media (max-width: 899px)': {
+    '@media (max-width: 999px)': {
       width: '18rem',
       fontSize: '1.8rem',
     },
     '@media (max-width: 599px)': {
       width: '100%',
       fontSize: '1.2rem',
+      borderRadius: '0',
     },
   },
   buttonGrid: {
     margin: '2rem 0 3rem 0',
     '@media (max-width: 599px)': {
-      margin: '2rem 0 2rem 0',
+      margin: '1.8rem 0 1.5rem 0',
     },
   },
   typographyTotal: {
@@ -111,7 +115,7 @@ const useStyles = makeStyles((theme) => ({
       fontSize: '1.5rem',
     },
     '@media (max-width: 599px)': {
-      fontSize: '1rem',
+      fontSize: '1.1rem',
     },
   },
 }));
@@ -168,7 +172,7 @@ function App() {
         <Grid container justifyContent="center" xs={12}>
           <Grid item xs={12} sm={10} md={8} justifyContent="center">
             <Typography variant="h1" align="center" className={classes.h1}>
-              Budget Parse and Add App
+              Budget Parse and&nbsp;Add&nbsp;App
             </Typography>
           </Grid>
           <Grid container item xs={11} sm={10} md={8}>
