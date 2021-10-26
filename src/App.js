@@ -15,6 +15,20 @@ const useStyles = makeStyles((theme) => ({
     padding: '0',
     marginTop: '10vh',
     height: '70vh',
+    '@media (max-width: 1280px)': {
+      height: '65vh',
+      width: '90vw',
+    },
+    '@media (max-width: 899px)': {
+      marginTop: '5vh',
+      height: '80vh',
+      width: '90vw',
+    },
+    '@media (max-width: 600px)': {
+      margin: '0',
+      height: '100vh',
+      width: '100vw',
+    },
   },
   card: {
     width: '100%',
@@ -23,10 +37,25 @@ const useStyles = makeStyles((theme) => ({
   },
   h1: {
     fontSize: '4rem',
-    margin: '1rem 0 2rem 0',
+    margin: '2rem 0 2rem 0',
+    '@media (max-width: 1280px)': {
+      fontSize: '3rem',
+    },
+    '@media (max-width: 899px)': {
+      margin: '3.8rem 0 2rem 0',
+      fontSize: '3rem',
+    },
+    '@media (max-width: 745px)': {
+      fontSize: '2.5rem',
+    },
+  },
+  typographyInstructions: {
+    '@media (max-width: 1280px)': {
+      fontSize: '1rem',
+    },
   },
   TextField: {
-    marginTop: '0.5rem',
+    marginTop: '1rem',
     backgroundColor: theme.palette.secondary.light,
   },
   button: {
@@ -39,16 +68,33 @@ const useStyles = makeStyles((theme) => ({
     '&:hover': {
       backgroundColor: theme.palette.primary.dark,
     },
+    '@media (max-width: 1280px)': {
+      width: '15rem',
+      fontSize: '1.5rem',
+    },
+    '@media (max-width: 899px)': {
+      width: '18rem',
+      fontSize: '1.8rem',
+    },
+    '@media (max-width: 600px)': {
+      width: '100%',
+    },
   },
   buttonGrid: {
     margin: '2rem 0 3rem 0',
   },
   typographyTotal: {
     marginRight: '0.5rem',
+    '@media (max-width: 1280px)': {
+      fontSize: '3rem',
+    },
   },
   typographyError: {
     color: 'red',
     marginRight: '0.5rem',
+    '@media (max-width: 1280px)': {
+      fontSize: '1.5rem',
+    },
   },
 }));
 
@@ -64,9 +110,14 @@ function App() {
   useEffect(() => {
     if (total === 'NaN') {
       settotalElementOutput(
-        <Typography variant="h4" className={classes.typographyError}>
-          Error! Please ensure all "$" and "," are in the correct place.
-        </Typography>
+        <>
+          <Typography variant="h4" className={classes.typographyError}>
+            Error! Please ensure all "$" and&nbsp;
+          </Typography>
+          <Typography variant="h4" className={classes.typographyError}>
+            "," are in the correct place.
+          </Typography>
+        </>
       );
     } else {
       settotalElementOutput(
@@ -102,13 +153,15 @@ function App() {
               Budget Parse and Add App
             </Typography>
           </Grid>
-          <Grid container item xs={8}>
-            <Typography variant="h6">
-              Include dollar sign '$' before each item's value. Separate each
-              item with a comma ','
+          <Grid container item xs={10} md={8}>
+            <Typography variant="h6" className={classes.typographyInstructions}>
+              Include dollar sign '$' before each item's value,&nbsp;
+            </Typography>
+            <Typography variant="h6" className={classes.typographyInstructions}>
+              separate each item with a comma ','
             </Typography>
           </Grid>
-          <Grid container item justifyContent="center" xs={8}>
+          <Grid container item justifyContent="center" xs={10} md={8}>
             <TextField
               value={budgetString}
               onChange={(e) => setBudgetString(e.target.value)}
@@ -129,7 +182,7 @@ function App() {
             container
             item
             justifyContent="center"
-            xs={12}
+            xs={10}
             className={classes.buttonGrid}
           >
             <Button
@@ -140,7 +193,7 @@ function App() {
               Get Total
             </Button>
           </Grid>
-          <Grid container item justifyContent="center" xs={12}>
+          <Grid container item justifyContent="center" xs={10} md={12}>
             {totalElementOutput}
           </Grid>
         </Grid>
