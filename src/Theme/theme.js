@@ -1,6 +1,6 @@
 import { createTheme } from '@material-ui/core';
 
-import { blue } from '@material-ui/core/colors';
+import { blue, lightBlue } from '@material-ui/core/colors';
 
 const theme = createTheme({
   breakpoints: {
@@ -14,12 +14,13 @@ const theme = createTheme({
   },
   palette: {
     primary: {
-      light: blue[700],
-      main: blue[800],
-      dark: blue[900],
+      light: lightBlue[700],
+      main: lightBlue[800],
+      dark: lightBlue[900],
     },
     secondary: {
-      main: blue['A100'],
+      main: blue[300],
+      light: blue[100],
     },
   },
 });

@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme) => ({
   h1: {
     fontSize: '4rem',
     margin: '2rem 0 2rem 0',
-    borderBottom: 'solid black 2px',
+    fontWeight: 'bold',
     '@media (max-width: 1280px)': {
       fontSize: '3rem',
     },
@@ -173,10 +173,10 @@ function App() {
           </Grid>
           <Grid container item xs={11} sm={10} md={8}>
             <Typography variant="h6" className={classes.typographyInstructions}>
-              Include dollar sign '$' before each item's value,&nbsp;
+              Include dollar sign '$' before each item's value&nbsp;
             </Typography>
             <Typography variant="h6" className={classes.typographyInstructions}>
-              separate each item with a comma ','
+              <b>AND</b> separate each item with a comma ','
             </Typography>
           </Grid>
           <Grid container item justifyContent="center" xs={12} sm={10} md={8}>
