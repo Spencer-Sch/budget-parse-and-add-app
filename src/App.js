@@ -26,7 +26,6 @@ const useStyles = makeStyles((theme) => ({
     margin: '1rem 0 2rem 0',
   },
   TextField: {
-    maxHeight: '15rem',
     marginTop: '0.5rem',
     backgroundColor: theme.palette.secondary.light,
   },
@@ -121,6 +120,9 @@ function App() {
               fullWidth
               minRows={10}
               className={classes.TextField}
+              inputProps={{
+                style: { overflow: 'auto', maxHeight: '11.8rem' },
+              }}
             />
           </Grid>
           <Grid
