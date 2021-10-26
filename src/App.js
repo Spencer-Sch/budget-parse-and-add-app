@@ -20,11 +20,11 @@ const useStyles = makeStyles((theme) => ({
       width: '90vw',
     },
     '@media (max-width: 899px)': {
-      marginTop: '5vh',
-      height: '80vh',
+      marginTop: '8vh',
+      height: '75vh',
       width: '90vw',
     },
-    '@media (max-width: 600px)': {
+    '@media (max-width: 599px)': {
       margin: '0',
       height: '100vh',
       width: '100vw',
@@ -38,6 +38,7 @@ const useStyles = makeStyles((theme) => ({
   h1: {
     fontSize: '4rem',
     margin: '2rem 0 2rem 0',
+    borderBottom: 'solid black 2px',
     '@media (max-width: 1280px)': {
       fontSize: '3rem',
     },
@@ -48,10 +49,17 @@ const useStyles = makeStyles((theme) => ({
     '@media (max-width: 745px)': {
       fontSize: '2.5rem',
     },
+    '@media (max-width: 599px)': {
+      margin: '1.2rem 0 2rem 0',
+      fontSize: '1.5rem',
+    },
   },
   typographyInstructions: {
     '@media (max-width: 1280px)': {
       fontSize: '1rem',
+    },
+    '@media (max-width: 599px)': {
+      fontSize: '0.8rem',
     },
   },
   TextField: {
@@ -76,17 +84,24 @@ const useStyles = makeStyles((theme) => ({
       width: '18rem',
       fontSize: '1.8rem',
     },
-    '@media (max-width: 600px)': {
+    '@media (max-width: 599px)': {
       width: '100%',
+      fontSize: '1.2rem',
     },
   },
   buttonGrid: {
     margin: '2rem 0 3rem 0',
+    '@media (max-width: 599px)': {
+      margin: '2rem 0 2rem 0',
+    },
   },
   typographyTotal: {
     marginRight: '0.5rem',
     '@media (max-width: 1280px)': {
       fontSize: '3rem',
+    },
+    '@media (max-width: 599px)': {
+      fontSize: '2rem',
     },
   },
   typographyError: {
@@ -94,6 +109,9 @@ const useStyles = makeStyles((theme) => ({
     marginRight: '0.5rem',
     '@media (max-width: 1280px)': {
       fontSize: '1.5rem',
+    },
+    '@media (max-width: 599px)': {
+      fontSize: '1rem',
     },
   },
 }));
@@ -148,12 +166,12 @@ function App() {
     <Container maxWidth="lg" className={classes.container}>
       <Card elevation={10} className={classes.card}>
         <Grid container justifyContent="center" xs={12}>
-          <Grid item xs={12} justifyContent="center">
+          <Grid item xs={12} sm={10} md={8} justifyContent="center">
             <Typography variant="h1" align="center" className={classes.h1}>
               Budget Parse and Add App
             </Typography>
           </Grid>
-          <Grid container item xs={10} md={8}>
+          <Grid container item xs={11} sm={10} md={8}>
             <Typography variant="h6" className={classes.typographyInstructions}>
               Include dollar sign '$' before each item's value,&nbsp;
             </Typography>
@@ -161,7 +179,7 @@ function App() {
               separate each item with a comma ','
             </Typography>
           </Grid>
-          <Grid container item justifyContent="center" xs={10} md={8}>
+          <Grid container item justifyContent="center" xs={12} sm={10} md={8}>
             <TextField
               value={budgetString}
               onChange={(e) => setBudgetString(e.target.value)}
@@ -171,10 +189,14 @@ function App() {
               placeholder="Ex: coffee $5, gas $20, dinner $15"
               multiline
               fullWidth
-              minRows={10}
+              minRows={4}
+              maxRows={10}
               className={classes.TextField}
               inputProps={{
-                style: { overflow: 'auto', maxHeight: '11.8rem' },
+                style: {
+                  overflow: 'auto',
+                  maxHeight: '11.8rem',
+                },
               }}
             />
           </Grid>
@@ -182,7 +204,8 @@ function App() {
             container
             item
             justifyContent="center"
-            xs={10}
+            xs={12}
+            sm={10}
             className={classes.buttonGrid}
           >
             <Button
@@ -193,7 +216,7 @@ function App() {
               Get Total
             </Button>
           </Grid>
-          <Grid container item justifyContent="center" xs={10} md={12}>
+          <Grid container item justifyContent="center" xs={11} sm={10} md={12}>
             {totalElementOutput}
           </Grid>
         </Grid>
