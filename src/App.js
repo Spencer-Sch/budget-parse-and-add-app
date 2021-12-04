@@ -68,6 +68,7 @@ const useStyles = makeStyles((theme) => ({
   TextField: {
     marginTop: '1rem',
     backgroundColor: theme.palette.secondary.light,
+    borderRadius: '4px',
   },
   button: {
     color: 'white',
