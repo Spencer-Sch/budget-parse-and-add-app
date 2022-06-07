@@ -1,6 +1,6 @@
 # Budget Parse and Add App
 
-> An app that will parse a list of expenses, pull out the value of each expense, and display the sum of the values.
+An app that will parse a list of expenses, pull out the value of each expense, and display the sum of the values.
 
 ---
 
@@ -58,6 +58,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## Author Info
 
-- Website - [Spencer Schoeneman](https://inthekeyofrhythm.com)
+- Spencer Schoeneman - [Webiste](https://inthekeyofrhythm.com)
 
 [Back To The Top](#budget-parse-and-add-app)
