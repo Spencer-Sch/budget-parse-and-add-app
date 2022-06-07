@@ -58,6 +58,6 @@ See the section about [running tests](https://facebook.github.io/create-react-ap
 
 ## Author Info
 
-- Spencer Schoeneman - [Webiste](https://inthekeyofrhythm.com)
+- Spencer Schoeneman - [Website](https://inthekeyofrhythm.com)
 
 [Back To The Top](#budget-parse-and-add-app)
